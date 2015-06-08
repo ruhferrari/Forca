@@ -1,0 +1,75 @@
+import javax.swing.JOptionPane;
+
+public class Jogo {
+
+	private String palavraGerada;
+	private String tracos = "";
+	private String palavraDaForca;
+	private String letra;
+	private Integer tentativas = 0;
+
+	public static void main(String[] args) {
+
+		System.out.println("Categoria: ESPORTES");
+		Jogo jgo = new Jogo();
+		jgo.palavraGerada = CategoriaEsporte.selecionaAleatorio();
+		System.out.println("palavraGerada: " + jgo.palavraGerada);
+		jgo.palavraDaForca = jgo.transformaEmTracos();
+		System.out.println();
+		System.out.println(jgo.palavraDaForca);
+
+		do {
+			jgo.letra = JOptionPane.showInputDialog("Digite a letra")
+					.toUpperCase();
+			System.out.print("Letra: " + jgo.letra);
+			jgo.validaTentativa(jgo.letra);
+
+			System.out.println();
+			System.out.println(jgo.palavraDaForca);
+			System.out.println("Tentativa " + jgo.tentativas + " de 5");
+
+		} while (jgo.tentativas < 5);
+	}
+
+	public String transformaEmTracos() {
+		for (int i = 0; i < palavraGerada.length(); i++) {
+			tracos = tracos + "_ ";
+		}
+		return tracos;
+	}
+
+	public void validaTentativa(String chute) {
+		boolean temLetra = false;
+		StringBuilder sb = new StringBuilder(palavraDaForca);
+
+		// if (tentativas > 0 && (!chute.trim().equals(""))) {
+		for (int i = 0; i < palavraGerada.length(); i++) {
+			if (chute.charAt(0) == palavraGerada.charAt(i)) {
+				temLetra = true;
+				sb.setCharAt(i, chute.charAt(0));
+				palavraDaForca = sb.toString();
+				/*
+				 * if (palavraDaForca.getText().equals(palavraGerada)) {
+				 * JOptionPane.showMessageDialog(null, "You win, bitch!"); }
+				 */
+			}
+		}
+
+		if (!temLetra) {
+			tentativas++;
+		}
+
+		// VERIFICA SE TERMINOU O JOGO
+		boolean temTraco = true;
+		for (int i = 0; i < palavraGerada.length(); i++) {
+			char letraPalavraGerada = palavraGerada.charAt(i);
+			if (letraPalavraGerada == '_') {
+				temTraco = true;
+			}
+		}
+
+		if (!temTraco || tentativas > 4) {
+			System.out.println("FIM");
+		}
+	}
+}

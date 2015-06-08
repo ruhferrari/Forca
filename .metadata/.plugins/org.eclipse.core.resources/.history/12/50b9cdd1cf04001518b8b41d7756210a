@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class CategoriaEsporte {
+
+	private static List<String> listaDePalavras;
+
+	private static List<String> getListaDePalavras() {
+		if (listaDePalavras == null) {
+			listaDePalavras = new ArrayList<>();
+			listaDePalavras.add("ATLETISMO");
+			listaDePalavras.add("AUTOMOBILISMO");
+			listaDePalavras.add("BASQUETE");
+			listaDePalavras.add("CICLISMO");
+			listaDePalavras.add("FUTEBOL");
+			listaDePalavras.add("HANDEBOL");
+			listaDePalavras.add("IATISMO");
+			listaDePalavras.add("RUGBY");
+			listaDePalavras.add("TENIS");
+			listaDePalavras.add("VOLEI");
+		}
+		return listaDePalavras;
+	}
+
+	public static String selecionaAleatorio() {
+		String selecao;
+		Random aleatorio = new Random();
+		selecao = getListaDePalavras().get(aleatorio.nextInt(9));
+		return selecao;
+	}
+
+}

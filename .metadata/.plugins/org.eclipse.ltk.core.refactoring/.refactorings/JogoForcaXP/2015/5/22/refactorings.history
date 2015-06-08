@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Palavra&apos; to &apos;CategoriaEsporte&apos;&#x0D;&#x0A;- Original project: &apos;JogoForcaXP&apos;&#x0D;&#x0A;- Original element: &apos;Palavra&apos;&#x0D;&#x0A;- Renamed element: &apos;CategoriaEsporte&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Palavra&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Palavra.java[Palavra" matchStrategy="1" name="CategoriaEsporte" qualified="false" references="true" similarDeclarations="false" stamp="1432767943148" textual="false" version="1.0"/>
+</session>

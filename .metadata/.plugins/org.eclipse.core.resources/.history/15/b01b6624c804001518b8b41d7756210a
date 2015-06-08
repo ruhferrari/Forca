@@ -1,0 +1,28 @@
+import javax.swing.JOptionPane;
+
+public class Jogo {
+
+	private String palavraGerada;
+	private String tracos = "";
+	private String palavraDaForca;
+	private Character letra;
+
+	public static void main(String[] args) {
+
+		System.out.println("Categoria: ESPORTES");
+		Jogo jgo = new Jogo();
+		jgo.palavraGerada = CategoriaEsporte.selecionaAleatorio();
+		jgo.palavraDaForca = jgo.transformaEmTracos();
+		System.out.println();
+		System.out.println(jgo.palavraDaForca);
+		System.out.print("Letra: ");
+		jgo.letra = JOptionPane.showInputDialog("Digite a letra").charAt(0);
+	}
+
+	public String transformaEmTracos() {
+		for (int i = 0; i < palavraGerada.length(); i++) {
+			tracos = tracos + "_ ";
+		}
+		return tracos;
+	}
+}
